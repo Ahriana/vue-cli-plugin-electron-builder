@@ -532,8 +532,7 @@ function bundleMain ({
     .target('electron-main')
     .node.set('__dirname', false)
     .set('__filename', false)
-  
-  config.devtool('source-map')
+
   // Set externals
   config.externals(getExternals(api, pluginOptions))
 
@@ -571,6 +570,11 @@ function bundleMain ({
     // Enable source maps for debugging
     config.devtool('source-map')
   } else if (NODE_ENV === 'production') {
+    config.devtool('source-map')
+    config.output = {
+      filename: './[name].js',
+      sourceMapFilename: './maps/[name].[chunkhash].map'
+    }
     // Minify for better performance
     // config.plugin('uglify').use(TerserPlugin, [
     //   {
