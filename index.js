@@ -571,8 +571,8 @@ function bundleMain ({
     config.devtool('source-map')
   } else if (NODE_ENV === 'production') {
     config.devtool('source-map')
-    config.output.filename = './[name].js'
-    config.output.sourceMapFilename = './maps/[name].[chunkhash].map'
+    config.output.set('filename', './[name].js')
+    config.output.set('sourceMapFilename', './maps/[name].[chunkhash].map')
 
     // Minify for better performance
     // config.plugin('uglify').use(TerserPlugin, [
