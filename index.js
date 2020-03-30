@@ -572,11 +572,11 @@ function bundleMain ({
     config.devtool('source-map')
   } else if (NODE_ENV === 'production') {
     // Minify for better performance
-    config.plugin('uglify').use(TerserPlugin, [
-      {
-        parallel: true
-      }
-    ])
+    // config.plugin('uglify').use(TerserPlugin, [
+    //   {
+    //     parallel: true
+    //   }
+    // ])
   }
   config
     .entry(isBuild ? 'background' : 'index')
