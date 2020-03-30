@@ -564,7 +564,9 @@ function bundleMain ({
     }
   })
   config.plugin('env').use(webpack.EnvironmentPlugin, [envVars])
-
+  
+  config.devtool('source-map')
+  
   if (args.debug) {
     // Enable source maps for debugging
     config.devtool('source-map')
